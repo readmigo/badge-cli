@@ -19,6 +19,7 @@ public:
 
     void seek(int time_ms);
     void advance(int delta_ms);
+    void reset();
 
     std::array<float, 3> currentScale() const;
     float currentRotationY() const;

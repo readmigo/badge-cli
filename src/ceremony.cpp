@@ -101,4 +101,14 @@ void CeremonyController::checkPhaseTransitions(int old_time, int new_time) {
     }
 }
 
+void CeremonyController::reset() {
+    current_time_ms_ = 0;
+    current_phase_index_ = -1;
+    started_ = false;
+}
+
+void CeremonyController::setCallbackHandler(Animator::CallbackHandler handler) {
+    animator_.setCallbackHandler(std::move(handler));
+}
+
 } // namespace badge

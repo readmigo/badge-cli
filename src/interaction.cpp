@@ -126,4 +126,18 @@ float InteractionHandler::pinchDistance(const BadgeTouchEvent& event) const {
     return std::sqrt(dx * dx + dy * dy);
 }
 
+void InteractionHandler::reset() {
+    rotation_x_ = 0.0f;
+    rotation_y_ = 0.0f;
+    velocity_x_ = 0.0f;
+    velocity_y_ = 0.0f;
+    zoom_ = 1.0f;
+    flipped_ = false;
+    state_ = GestureState::IDLE;
+    is_down_ = false;
+    last_pinch_dist_ = 0.0f;
+    waiting_for_second_tap_ = false;
+    time_since_last_tap_ = 999.0f;
+}
+
 } // namespace badge

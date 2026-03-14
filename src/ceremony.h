@@ -20,8 +20,12 @@ public:
 
     void start();
     void advance(int delta_ms);
+    void reset();
+
+    bool isPlaying() const { return started_ && !isFinished(); }
 
     void setPhaseChangeHandler(PhaseChangeHandler handler);
+    void setCallbackHandler(Animator::CallbackHandler handler);
 
     Animator& animator() { return animator_; }
 

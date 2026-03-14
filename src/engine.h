@@ -6,14 +6,15 @@
 
 namespace badge {
 
+#ifdef BADGE_ENGINE_HAS_FILAMENT
 class Renderer;
-class Scene;
+class SceneManager;
+#endif
 class MaterialSystem;
 class LightingSystem;
 class InteractionHandler;
 class Animator;
 class CeremonyController;
-class ParticleSystem;
 class AssetLoader;
 
 class Engine {
@@ -37,6 +38,7 @@ public:
 
 private:
     void emitEvent(const BadgeEvent& event);
+    void setupLighting();
 
     BadgeEngineConfig config_;
     BadgeRenderMode render_mode_;
@@ -45,6 +47,17 @@ private:
     void* callback_user_data_ = nullptr;
     bool surface_ready_ = false;
     bool badge_loaded_ = false;
+
+#ifdef BADGE_ENGINE_HAS_FILAMENT
+    std::unique_ptr<Renderer> renderer_;
+    std::unique_ptr<SceneManager> scene_;
+#endif
+    std::unique_ptr<MaterialSystem> material_system_;
+    std::unique_ptr<LightingSystem> lighting_;
+    std::unique_ptr<InteractionHandler> interaction_;
+    std::unique_ptr<Animator> animator_;
+    std::unique_ptr<CeremonyController> ceremony_;
+    std::unique_ptr<AssetLoader> asset_loader_;
 };
 
 } // namespace badge

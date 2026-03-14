@@ -177,6 +177,13 @@ void Animator::fireCallbacksInRange(int from_ms, int to_ms) {
     }
 }
 
+void Animator::reset() {
+    current_time_ms_ = 0;
+    for (auto& cb : callbacks_) {
+        cb.fired = false;
+    }
+}
+
 float Animator::ease(const std::string& name, float t) {
     t = std::clamp(t, 0.0f, 1.0f);
 

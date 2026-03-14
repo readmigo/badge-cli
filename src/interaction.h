@@ -9,6 +9,7 @@ class InteractionHandler {
 public:
     void onTouch(const BadgeTouchEvent& event);
     void tick(float dt);
+    void reset();
 
     float rotationX() const { return rotation_x_; }
     float rotationY() const { return rotation_y_; }
