@@ -1,0 +1,14 @@
+{
+  "format_version": 1,
+  "badge_id": "encounter",
+  "name": {"en": "Encounter", "zh": "\u9047\u89c1"},
+  "tier": 1,
+  "rarity": "RARE",
+  "material": {
+    "base_color": "#FFD700",
+    "metalness": 0.95,
+    "roughness": 0.18,
+    "emissive": "#5C4400"
+  },
+  "template": "carved_pendant"
+}
